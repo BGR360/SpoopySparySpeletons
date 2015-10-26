@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPreparedListener
 {
+    private final int MIN_SIZE_OF_DISAPPEARING_BUTTON = 10;
+    private final int ANIMATION_TIME_MILLIS = 1000;
+
     SoundPlayer spoopySparyPlayer;
     boolean canSpoopYet = false;
 
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
 
     public void onSpoopySparyButtonPressed(View v)
     {
+        spoopyFadeAway();
         spoopTheShitOutOfMePls();
     }
 
@@ -78,6 +82,11 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
             }
             spoopySparyPlayer.start();
         }
-        Toast.makeText(this, "SPOOPY SPARY SPELETONS", Toast.LENGTH_SHORT).show();
+    }
+
+    public void spoopyFadeAway()
+    {
+        final ImageButton spoopySparyButton = (ImageButton)findViewById(R.id.spoopy_spary_bone);
+
     }
 }
