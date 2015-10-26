@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">SpoopySparySpeletons</string>
     <string name="action_settings">Settings</string>
+    <string name="spoopy_spary_bone_desc">Spoopy Spary Bone</string>
+
+    <string name="media_error_unknown">Unknown error occurred :((</string>
+    <string name="media_error_server_died">The server perished in a fire.</string>
+    <string name="media_error_io">Error reading the sound file.</string>
+    <string name="media_error_malformed">Could not read the sound file. File may be part
+    of a government organization.</string>
+    <string name="media_error_unsupported">The sound file format is unsupported.</string>
+    <string name="media_error_timed_out">Waited too long. Bitch didn\'t respond.</string>
 </resources>
