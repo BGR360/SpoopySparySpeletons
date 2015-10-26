@@ -14,7 +14,7 @@
     tools:context=".MainActivity">
 
     <ImageButton
-        android:layout_width="wrap_content"
+        android:layout_width="400dp"
         android:layout_height="200dp"
         android:id="@+id/spoopy_spary_bone"
         android:onClick="onSpoopySparyButtonPressed"

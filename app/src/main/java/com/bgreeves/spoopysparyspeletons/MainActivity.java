@@ -72,6 +72,10 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
     {
         if (canSpoopYet)
         {
+            if (spoopySparyPlayer.isPlaying())
+            {
+                spoopySparyPlayer.stop();
+            }
             spoopySparyPlayer.start();
         }
         Toast.makeText(this, "SPOOPY SPARY SPELETONS", Toast.LENGTH_SHORT).show();
