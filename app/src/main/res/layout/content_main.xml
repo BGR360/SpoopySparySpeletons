@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:id="@+id/spoopy_spary_bone"
+        android:onClick="onSpoopySparyButtonPressed"
         android:background="@drawable/spoopy_spary_bone"
         android:contentDescription="@string/spoopy_spary_bone_desc"
         android:layout_centerHorizontal="true"

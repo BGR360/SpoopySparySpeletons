@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPreparedListener
 {
@@ -61,11 +63,17 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
         canSpoopYet = true;
     }
 
+    public void onSpoopySparyButtonPressed(View v)
+    {
+        spoopTheShitOutOfMePls();
+    }
+
     public void spoopTheShitOutOfMePls()
     {
         if (canSpoopYet)
         {
             spoopySparyPlayer.start();
         }
+        Toast.makeText(this, "SPOOPY SPARY SPELETONS", Toast.LENGTH_SHORT).show();
     }
 }
