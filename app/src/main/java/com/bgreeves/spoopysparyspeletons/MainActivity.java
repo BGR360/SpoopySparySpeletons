@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPreparedListener
@@ -87,6 +89,28 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
     public void spoopyFadeAway()
     {
         final ImageButton spoopySparyButton = (ImageButton)findViewById(R.id.spoopy_spary_bone);
+        final Animation spoopySparyAnimation = AnimationUtils.loadAnimation(this, R.anim.spoopy_spary_animation);
+        spoopySparyAnimation.setAnimationListener(new Animation.AnimationListener()
+        {
+            @Override
+            public void onAnimationStart(Animation animation)
+            {
 
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation)
+            {
+                spoopySparyButton.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation)
+            {
+
+            }
+        });
+
+        spoopySparyButton.startAnimation(spoopySparyAnimation);
     }
 }
