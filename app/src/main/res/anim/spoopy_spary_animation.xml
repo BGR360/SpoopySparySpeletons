@@ -40,9 +40,9 @@
         android:startOffset="1360">
         <scale
             android:fromXScale="1.0"
-            android:toXScale="0.01"
+            android:toXScale="0.0001"
             android:fromYScale="1.0"
-            android:toYScale="0.01"
+            android:toYScale="0.0001"
             android:repeatMode="reverse"
             android:pivotX="50%"
             android:pivotY="50%"

@@ -1,6 +1,7 @@
 package com.bgreeves.spoopysparyspeletons;
 
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
     GifImageView spoopySparyDancer, spoopySparyPogo, spoopySparyIntensifies, spoopySparyCrazyShakinSkull;
     GifImageView spoopySparyPumpkin, spoopySparySwallow, /* spoopySparyCrazyShakinSkull */ spoopySparySpeletor;
     GifImageView spoopySparySaunter;
-    GifImageView spoopySparyRave;
+    GifImageView spoopySparyRave, spoopySparyOtherRave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
         spoopySparySpeletor = (GifImageView)findViewById(R.id.spoopy_spary_speletor);
         spoopySparySaunter = (GifImageView)findViewById(R.id.spoopy_spary_sauntering);
         spoopySparyRave = (GifImageView)findViewById(R.id.spoopy_spary_rave);
+        spoopySparyOtherRave = (GifImageView)findViewById(R.id.spoopy_spary_stroby_speleton);
     }
 
     @Override
@@ -122,6 +124,8 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
                     spoopySparyButton.setScaleY(1.0f);
                     spoopySparyButton.setRotation(0.0f);
                     spoopySparyButton.setVisibility(View.VISIBLE);
+                    RelativeLayout mainLayout = (RelativeLayout)MainActivity.this.findViewById(R.id.main_relative_layout);
+                    mainLayout.setBackgroundColor(Color.WHITE);
                 }
             });
         }
@@ -184,12 +188,15 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
         GifStarter startShortTall2   = new GifStarter(spoopySparyShortAndTall, spoopySparySpeletor);
         GifStarter startCult2        = new GifStarter(spoopySparyCult, spoopySparyShortAndTall);
         GifStarter startIntensifies2 = new GifStarter(spoopySparyIntensifies, spoopySparyCult);
-        GifStarter startSkull3       = new GifStarter(spoopySparyCrazyShakinSkull, spoopySparyIntensifies);
-        GifStarter startEmpty        = new GifStarter(null, spoopySparyCrazyShakinSkull);
+        GifStarter startEmpty        = new GifStarter(null, spoopySparyIntensifies);
 
         // RAAAAVVEEE
         GifStarter startRave         = new GifStarter(spoopySparyRave, null);
-
+        GifStarter startOtherRave    = new GifStarter(spoopySparyOtherRave, spoopySparyRave);
+        GifStarter startRave2        = new GifStarter(spoopySparyRave, spoopySparyOtherRave);
+        GifStarter startOtherRave2   = new GifStarter(spoopySparyOtherRave, spoopySparyRave);
+        GifStarter startSpeleton3    = new GifStarter(spoopySparySpeleton, spoopySparyOtherRave);
+        GifStarter stopAll           = new GifStarter(null, spoopySparySpeleton);
 
 
         Handler handler = new Handler();
@@ -232,22 +239,64 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
         handler.postDelayed(startShortTall2, 54500);
         handler.postDelayed(startCult2, 56330);
         handler.postDelayed(startIntensifies2, 58200);
-        handler.postDelayed(startSkull3, 59625);
         handler.postDelayed(startEmpty, 60545);
 
         // Change screen to black
+        final RelativeLayout mainLayout = (RelativeLayout)MainActivity.this.findViewById(R.id.main_relative_layout);
         handler.postDelayed(new Runnable()
         {
             @Override
             public void run()
             {
-                RelativeLayout mainLayout = (RelativeLayout)MainActivity.this.findViewById(R.id.main_relative_layout);
                 mainLayout.setBackgroundColor(Color.BLACK);
             }
         }, 61035);
 
+        // Begin strobing background
+        handler.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                // Start the background strobing
+                mainLayout.setBackgroundResource(R.drawable.spoopy_rave_anim_drawable);
+                // Get the background, which has been compiled to an AnimationDrawable object.
+                final AnimationDrawable frameAnimation = (AnimationDrawable) mainLayout.getBackground();
+                // Start the animation (looped playback by default).
+                frameAnimation.start();
+            }
+        }, 61505);
+        handler.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                // Start the background strobing
+                mainLayout.setBackgroundResource(R.drawable.spoopier_rave_anim_drawable);
+                // Get the background, which has been compiled to an AnimationDrawable object.
+                final AnimationDrawable frameAnimation = (AnimationDrawable) mainLayout.getBackground();
+                // Start the animation (looped playback by default).
+                frameAnimation.start();
+            }
+        }, 76515);
+
         // RAVE
         handler.postDelayed(startRave, 61505);
+        handler.postDelayed(startOtherRave, 68995);
+        handler.postDelayed(startRave2, 76515);
+        handler.postDelayed(startOtherRave2, 83980);
+        handler.postDelayed(startSpeleton3, 89635);
+        handler.postDelayed(stopAll, 91465);
+
+        // Stop the strobing when it's time
+        handler.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                ((AnimationDrawable)mainLayout.getBackground()).stop();
+            }
+        }, 89635);
     }
 
     private class GifStarter implements Runnable
