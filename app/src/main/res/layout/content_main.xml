@@ -25,4 +25,12 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_speletons"
+        android:src="@drawable/spoopy_spary_speleton"
+        android:visibility="invisible"/>
+
 </RelativeLayout>

@@ -1,14 +1,26 @@
 package com.bgreeves.spoopysparyspeletons;
 
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Movie;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+
+import java.io.InputStream;
+
+import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPreparedListener
 {
@@ -70,8 +82,8 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
 
     public void onSpoopySparyButtonPressed(View v)
     {
-        spoopyFadeAway();
         spoopTheShitOutOfMePls();
+        spoopyFadeAway();
     }
 
     public void spoopTheShitOutOfMePls()
@@ -83,6 +95,20 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
                 spoopySparyPlayer.stop();
             }
             spoopySparyPlayer.start();
+            spoopySparyPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+            {
+                @Override
+                public void onCompletion(MediaPlayer mp)
+                {
+                    GifImageView spoopySparySpeleton = (GifImageView)findViewById(R.id.spoopy_spary_speletons);
+                    spoopySparySpeleton.setVisibility(View.INVISIBLE);
+                    ImageButton spoopySparyButton = (ImageButton)findViewById(R.id.spoopy_spary_bone);
+                    spoopySparyButton.setScaleX(1.0f);
+                    spoopySparyButton.setScaleY(1.0f);
+                    spoopySparyButton.setRotation(0.0f);
+                    spoopySparyButton.setVisibility(View.VISIBLE);
+                }
+            });
         }
     }
 
@@ -102,6 +128,8 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnPre
             public void onAnimationEnd(Animation animation)
             {
                 spoopySparyButton.setVisibility(View.INVISIBLE);
+                GifImageView spoopySparySpeleton = (GifImageView)findViewById(R.id.spoopy_spary_speletons);
+                spoopySparySpeleton.setVisibility(View.VISIBLE);
             }
 
             @Override
