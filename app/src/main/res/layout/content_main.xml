@@ -11,7 +11,8 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/main_relative_layout">
 
     <ImageButton
         android:layout_width="match_parent"
@@ -31,6 +32,102 @@
         android:layout_centerInParent="true"
         android:id="@+id/spoopy_spary_speletons"
         android:src="@drawable/spoopy_spary_speleton"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_short_and_tall"
+        android:src="@drawable/short_and_tall"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_crazy_shakin_skull"
+        android:src="@drawable/spoopy_crazy_shakin_skull"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_cult"
+        android:src="@drawable/spoopy_cult"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_dancer"
+        android:src="@drawable/spoopy_dancer"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_intensifies"
+        android:src="@drawable/spoopy_intensifies"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_pogo"
+        android:src="@drawable/spoopy_pogo"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_pumpkin"
+        android:src="@drawable/spoopy_pumpkin"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_rave"
+        android:src="@drawable/spoopy_rave"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_sauntering"
+        android:src="@drawable/spoopy_sauntering"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_speletor"
+        android:src="@drawable/spoopy_speletor"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_stroby_speleton"
+        android:src="@drawable/spoopy_stroby_speleton"
+        android:visibility="invisible"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/spoopy_spary_swallow"
+        android:src="@drawable/spoopy_swallow"
         android:visibility="invisible"/>
 
 </RelativeLayout>
